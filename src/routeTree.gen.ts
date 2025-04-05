@@ -16,7 +16,17 @@ import { Route as PromptImport } from './routes/prompt'
 import { Route as O3MiniHighImport } from './routes/o3-mini-high'
 import { Route as LlamaScoutImport } from './routes/llama-scout'
 import { Route as LlamaMaverickImport } from './routes/llama-maverick'
+import { Route as Llama3770bImport } from './routes/llama-37-70b'
+import { Route as Gpt4oImport } from './routes/gpt-4o'
+import { Route as Gemini25ProImport } from './routes/gemini-25-pro'
+import { Route as Gemini20FlashLiteImport } from './routes/gemini-20-flash-lite'
 import { Route as Gemini20FlashImport } from './routes/gemini-20-flash'
+import { Route as DeepseekV30324Import } from './routes/deepseek-v3-0324'
+import { Route as DeepseekR1LlamaImport } from './routes/deepseek-r1-llama'
+import { Route as DeepseekR1Import } from './routes/deepseek-r1'
+import { Route as R37SonnetReasoningImport } from './routes/37-sonnet-reasoning'
+import { Route as R37SonnetImport } from './routes/37-sonnet'
+import { Route as R35SonnetImport } from './routes/35-sonnet'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
@@ -51,9 +61,69 @@ const LlamaMaverickRoute = LlamaMaverickImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const Llama3770bRoute = Llama3770bImport.update({
+  id: '/llama-37-70b',
+  path: '/llama-37-70b',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const Gpt4oRoute = Gpt4oImport.update({
+  id: '/gpt-4o',
+  path: '/gpt-4o',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const Gemini25ProRoute = Gemini25ProImport.update({
+  id: '/gemini-25-pro',
+  path: '/gemini-25-pro',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const Gemini20FlashLiteRoute = Gemini20FlashLiteImport.update({
+  id: '/gemini-20-flash-lite',
+  path: '/gemini-20-flash-lite',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const Gemini20FlashRoute = Gemini20FlashImport.update({
   id: '/gemini-20-flash',
   path: '/gemini-20-flash',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DeepseekV30324Route = DeepseekV30324Import.update({
+  id: '/deepseek-v3-0324',
+  path: '/deepseek-v3-0324',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DeepseekR1LlamaRoute = DeepseekR1LlamaImport.update({
+  id: '/deepseek-r1-llama',
+  path: '/deepseek-r1-llama',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DeepseekR1Route = DeepseekR1Import.update({
+  id: '/deepseek-r1',
+  path: '/deepseek-r1',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const R37SonnetReasoningRoute = R37SonnetReasoningImport.update({
+  id: '/37-sonnet-reasoning',
+  path: '/37-sonnet-reasoning',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const R37SonnetRoute = R37SonnetImport.update({
+  id: '/37-sonnet',
+  path: '/37-sonnet',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const R35SonnetRoute = R35SonnetImport.update({
+  id: '/35-sonnet',
+  path: '/35-sonnet',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -74,11 +144,81 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/35-sonnet': {
+      id: '/35-sonnet'
+      path: '/35-sonnet'
+      fullPath: '/35-sonnet'
+      preLoaderRoute: typeof R35SonnetImport
+      parentRoute: typeof rootRoute
+    }
+    '/37-sonnet': {
+      id: '/37-sonnet'
+      path: '/37-sonnet'
+      fullPath: '/37-sonnet'
+      preLoaderRoute: typeof R37SonnetImport
+      parentRoute: typeof rootRoute
+    }
+    '/37-sonnet-reasoning': {
+      id: '/37-sonnet-reasoning'
+      path: '/37-sonnet-reasoning'
+      fullPath: '/37-sonnet-reasoning'
+      preLoaderRoute: typeof R37SonnetReasoningImport
+      parentRoute: typeof rootRoute
+    }
+    '/deepseek-r1': {
+      id: '/deepseek-r1'
+      path: '/deepseek-r1'
+      fullPath: '/deepseek-r1'
+      preLoaderRoute: typeof DeepseekR1Import
+      parentRoute: typeof rootRoute
+    }
+    '/deepseek-r1-llama': {
+      id: '/deepseek-r1-llama'
+      path: '/deepseek-r1-llama'
+      fullPath: '/deepseek-r1-llama'
+      preLoaderRoute: typeof DeepseekR1LlamaImport
+      parentRoute: typeof rootRoute
+    }
+    '/deepseek-v3-0324': {
+      id: '/deepseek-v3-0324'
+      path: '/deepseek-v3-0324'
+      fullPath: '/deepseek-v3-0324'
+      preLoaderRoute: typeof DeepseekV30324Import
+      parentRoute: typeof rootRoute
+    }
     '/gemini-20-flash': {
       id: '/gemini-20-flash'
       path: '/gemini-20-flash'
       fullPath: '/gemini-20-flash'
       preLoaderRoute: typeof Gemini20FlashImport
+      parentRoute: typeof rootRoute
+    }
+    '/gemini-20-flash-lite': {
+      id: '/gemini-20-flash-lite'
+      path: '/gemini-20-flash-lite'
+      fullPath: '/gemini-20-flash-lite'
+      preLoaderRoute: typeof Gemini20FlashLiteImport
+      parentRoute: typeof rootRoute
+    }
+    '/gemini-25-pro': {
+      id: '/gemini-25-pro'
+      path: '/gemini-25-pro'
+      fullPath: '/gemini-25-pro'
+      preLoaderRoute: typeof Gemini25ProImport
+      parentRoute: typeof rootRoute
+    }
+    '/gpt-4o': {
+      id: '/gpt-4o'
+      path: '/gpt-4o'
+      fullPath: '/gpt-4o'
+      preLoaderRoute: typeof Gpt4oImport
+      parentRoute: typeof rootRoute
+    }
+    '/llama-37-70b': {
+      id: '/llama-37-70b'
+      path: '/llama-37-70b'
+      fullPath: '/llama-37-70b'
+      preLoaderRoute: typeof Llama3770bImport
       parentRoute: typeof rootRoute
     }
     '/llama-maverick': {
@@ -123,7 +263,17 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/35-sonnet': typeof R35SonnetRoute
+  '/37-sonnet': typeof R37SonnetRoute
+  '/37-sonnet-reasoning': typeof R37SonnetReasoningRoute
+  '/deepseek-r1': typeof DeepseekR1Route
+  '/deepseek-r1-llama': typeof DeepseekR1LlamaRoute
+  '/deepseek-v3-0324': typeof DeepseekV30324Route
   '/gemini-20-flash': typeof Gemini20FlashRoute
+  '/gemini-20-flash-lite': typeof Gemini20FlashLiteRoute
+  '/gemini-25-pro': typeof Gemini25ProRoute
+  '/gpt-4o': typeof Gpt4oRoute
+  '/llama-37-70b': typeof Llama3770bRoute
   '/llama-maverick': typeof LlamaMaverickRoute
   '/llama-scout': typeof LlamaScoutRoute
   '/o3-mini-high': typeof O3MiniHighRoute
@@ -133,7 +283,17 @@ export interface FileRoutesByFullPath {
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/35-sonnet': typeof R35SonnetRoute
+  '/37-sonnet': typeof R37SonnetRoute
+  '/37-sonnet-reasoning': typeof R37SonnetReasoningRoute
+  '/deepseek-r1': typeof DeepseekR1Route
+  '/deepseek-r1-llama': typeof DeepseekR1LlamaRoute
+  '/deepseek-v3-0324': typeof DeepseekV30324Route
   '/gemini-20-flash': typeof Gemini20FlashRoute
+  '/gemini-20-flash-lite': typeof Gemini20FlashLiteRoute
+  '/gemini-25-pro': typeof Gemini25ProRoute
+  '/gpt-4o': typeof Gpt4oRoute
+  '/llama-37-70b': typeof Llama3770bRoute
   '/llama-maverick': typeof LlamaMaverickRoute
   '/llama-scout': typeof LlamaScoutRoute
   '/o3-mini-high': typeof O3MiniHighRoute
@@ -144,7 +304,17 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/35-sonnet': typeof R35SonnetRoute
+  '/37-sonnet': typeof R37SonnetRoute
+  '/37-sonnet-reasoning': typeof R37SonnetReasoningRoute
+  '/deepseek-r1': typeof DeepseekR1Route
+  '/deepseek-r1-llama': typeof DeepseekR1LlamaRoute
+  '/deepseek-v3-0324': typeof DeepseekV30324Route
   '/gemini-20-flash': typeof Gemini20FlashRoute
+  '/gemini-20-flash-lite': typeof Gemini20FlashLiteRoute
+  '/gemini-25-pro': typeof Gemini25ProRoute
+  '/gpt-4o': typeof Gpt4oRoute
+  '/llama-37-70b': typeof Llama3770bRoute
   '/llama-maverick': typeof LlamaMaverickRoute
   '/llama-scout': typeof LlamaScoutRoute
   '/o3-mini-high': typeof O3MiniHighRoute
@@ -156,7 +326,17 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/35-sonnet'
+    | '/37-sonnet'
+    | '/37-sonnet-reasoning'
+    | '/deepseek-r1'
+    | '/deepseek-r1-llama'
+    | '/deepseek-v3-0324'
     | '/gemini-20-flash'
+    | '/gemini-20-flash-lite'
+    | '/gemini-25-pro'
+    | '/gpt-4o'
+    | '/llama-37-70b'
     | '/llama-maverick'
     | '/llama-scout'
     | '/o3-mini-high'
@@ -165,7 +345,17 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/35-sonnet'
+    | '/37-sonnet'
+    | '/37-sonnet-reasoning'
+    | '/deepseek-r1'
+    | '/deepseek-r1-llama'
+    | '/deepseek-v3-0324'
     | '/gemini-20-flash'
+    | '/gemini-20-flash-lite'
+    | '/gemini-25-pro'
+    | '/gpt-4o'
+    | '/llama-37-70b'
     | '/llama-maverick'
     | '/llama-scout'
     | '/o3-mini-high'
@@ -174,7 +364,17 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/35-sonnet'
+    | '/37-sonnet'
+    | '/37-sonnet-reasoning'
+    | '/deepseek-r1'
+    | '/deepseek-r1-llama'
+    | '/deepseek-v3-0324'
     | '/gemini-20-flash'
+    | '/gemini-20-flash-lite'
+    | '/gemini-25-pro'
+    | '/gpt-4o'
+    | '/llama-37-70b'
     | '/llama-maverick'
     | '/llama-scout'
     | '/o3-mini-high'
@@ -185,7 +385,17 @@ export interface FileRouteTypes {
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  R35SonnetRoute: typeof R35SonnetRoute
+  R37SonnetRoute: typeof R37SonnetRoute
+  R37SonnetReasoningRoute: typeof R37SonnetReasoningRoute
+  DeepseekR1Route: typeof DeepseekR1Route
+  DeepseekR1LlamaRoute: typeof DeepseekR1LlamaRoute
+  DeepseekV30324Route: typeof DeepseekV30324Route
   Gemini20FlashRoute: typeof Gemini20FlashRoute
+  Gemini20FlashLiteRoute: typeof Gemini20FlashLiteRoute
+  Gemini25ProRoute: typeof Gemini25ProRoute
+  Gpt4oRoute: typeof Gpt4oRoute
+  Llama3770bRoute: typeof Llama3770bRoute
   LlamaMaverickRoute: typeof LlamaMaverickRoute
   LlamaScoutRoute: typeof LlamaScoutRoute
   O3MiniHighRoute: typeof O3MiniHighRoute
@@ -195,7 +405,17 @@ export interface RootRouteChildren {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  R35SonnetRoute: R35SonnetRoute,
+  R37SonnetRoute: R37SonnetRoute,
+  R37SonnetReasoningRoute: R37SonnetReasoningRoute,
+  DeepseekR1Route: DeepseekR1Route,
+  DeepseekR1LlamaRoute: DeepseekR1LlamaRoute,
+  DeepseekV30324Route: DeepseekV30324Route,
   Gemini20FlashRoute: Gemini20FlashRoute,
+  Gemini20FlashLiteRoute: Gemini20FlashLiteRoute,
+  Gemini25ProRoute: Gemini25ProRoute,
+  Gpt4oRoute: Gpt4oRoute,
+  Llama3770bRoute: Llama3770bRoute,
   LlamaMaverickRoute: LlamaMaverickRoute,
   LlamaScoutRoute: LlamaScoutRoute,
   O3MiniHighRoute: O3MiniHighRoute,
@@ -214,7 +434,17 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/35-sonnet",
+        "/37-sonnet",
+        "/37-sonnet-reasoning",
+        "/deepseek-r1",
+        "/deepseek-r1-llama",
+        "/deepseek-v3-0324",
         "/gemini-20-flash",
+        "/gemini-20-flash-lite",
+        "/gemini-25-pro",
+        "/gpt-4o",
+        "/llama-37-70b",
         "/llama-maverick",
         "/llama-scout",
         "/o3-mini-high",
@@ -225,8 +455,38 @@ export const routeTree = rootRoute
     "/": {
       "filePath": "index.tsx"
     },
+    "/35-sonnet": {
+      "filePath": "35-sonnet.tsx"
+    },
+    "/37-sonnet": {
+      "filePath": "37-sonnet.tsx"
+    },
+    "/37-sonnet-reasoning": {
+      "filePath": "37-sonnet-reasoning.tsx"
+    },
+    "/deepseek-r1": {
+      "filePath": "deepseek-r1.tsx"
+    },
+    "/deepseek-r1-llama": {
+      "filePath": "deepseek-r1-llama.tsx"
+    },
+    "/deepseek-v3-0324": {
+      "filePath": "deepseek-v3-0324.tsx"
+    },
     "/gemini-20-flash": {
       "filePath": "gemini-20-flash.tsx"
+    },
+    "/gemini-20-flash-lite": {
+      "filePath": "gemini-20-flash-lite.tsx"
+    },
+    "/gemini-25-pro": {
+      "filePath": "gemini-25-pro.tsx"
+    },
+    "/gpt-4o": {
+      "filePath": "gpt-4o.tsx"
+    },
+    "/llama-37-70b": {
+      "filePath": "llama-37-70b.tsx"
     },
     "/llama-maverick": {
       "filePath": "llama-maverick.tsx"
