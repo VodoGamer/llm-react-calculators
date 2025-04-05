@@ -14,6 +14,8 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as QuasarAlphaImport } from './routes/quasar-alpha'
 import { Route as PromptImport } from './routes/prompt'
 import { Route as O3MiniHighImport } from './routes/o3-mini-high'
+import { Route as LlamaScoutImport } from './routes/llama-scout'
+import { Route as LlamaMaverickImport } from './routes/llama-maverick'
 import { Route as Gemini20FlashImport } from './routes/gemini-20-flash'
 import { Route as IndexImport } from './routes/index'
 
@@ -34,6 +36,18 @@ const PromptRoute = PromptImport.update({
 const O3MiniHighRoute = O3MiniHighImport.update({
   id: '/o3-mini-high',
   path: '/o3-mini-high',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LlamaScoutRoute = LlamaScoutImport.update({
+  id: '/llama-scout',
+  path: '/llama-scout',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LlamaMaverickRoute = LlamaMaverickImport.update({
+  id: '/llama-maverick',
+  path: '/llama-maverick',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -67,6 +81,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Gemini20FlashImport
       parentRoute: typeof rootRoute
     }
+    '/llama-maverick': {
+      id: '/llama-maverick'
+      path: '/llama-maverick'
+      fullPath: '/llama-maverick'
+      preLoaderRoute: typeof LlamaMaverickImport
+      parentRoute: typeof rootRoute
+    }
+    '/llama-scout': {
+      id: '/llama-scout'
+      path: '/llama-scout'
+      fullPath: '/llama-scout'
+      preLoaderRoute: typeof LlamaScoutImport
+      parentRoute: typeof rootRoute
+    }
     '/o3-mini-high': {
       id: '/o3-mini-high'
       path: '/o3-mini-high'
@@ -96,6 +124,8 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/gemini-20-flash': typeof Gemini20FlashRoute
+  '/llama-maverick': typeof LlamaMaverickRoute
+  '/llama-scout': typeof LlamaScoutRoute
   '/o3-mini-high': typeof O3MiniHighRoute
   '/prompt': typeof PromptRoute
   '/quasar-alpha': typeof QuasarAlphaRoute
@@ -104,6 +134,8 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/gemini-20-flash': typeof Gemini20FlashRoute
+  '/llama-maverick': typeof LlamaMaverickRoute
+  '/llama-scout': typeof LlamaScoutRoute
   '/o3-mini-high': typeof O3MiniHighRoute
   '/prompt': typeof PromptRoute
   '/quasar-alpha': typeof QuasarAlphaRoute
@@ -113,6 +145,8 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/gemini-20-flash': typeof Gemini20FlashRoute
+  '/llama-maverick': typeof LlamaMaverickRoute
+  '/llama-scout': typeof LlamaScoutRoute
   '/o3-mini-high': typeof O3MiniHighRoute
   '/prompt': typeof PromptRoute
   '/quasar-alpha': typeof QuasarAlphaRoute
@@ -123,15 +157,26 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/gemini-20-flash'
+    | '/llama-maverick'
+    | '/llama-scout'
     | '/o3-mini-high'
     | '/prompt'
     | '/quasar-alpha'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/gemini-20-flash' | '/o3-mini-high' | '/prompt' | '/quasar-alpha'
+  to:
+    | '/'
+    | '/gemini-20-flash'
+    | '/llama-maverick'
+    | '/llama-scout'
+    | '/o3-mini-high'
+    | '/prompt'
+    | '/quasar-alpha'
   id:
     | '__root__'
     | '/'
     | '/gemini-20-flash'
+    | '/llama-maverick'
+    | '/llama-scout'
     | '/o3-mini-high'
     | '/prompt'
     | '/quasar-alpha'
@@ -141,6 +186,8 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   Gemini20FlashRoute: typeof Gemini20FlashRoute
+  LlamaMaverickRoute: typeof LlamaMaverickRoute
+  LlamaScoutRoute: typeof LlamaScoutRoute
   O3MiniHighRoute: typeof O3MiniHighRoute
   PromptRoute: typeof PromptRoute
   QuasarAlphaRoute: typeof QuasarAlphaRoute
@@ -149,6 +196,8 @@ export interface RootRouteChildren {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   Gemini20FlashRoute: Gemini20FlashRoute,
+  LlamaMaverickRoute: LlamaMaverickRoute,
+  LlamaScoutRoute: LlamaScoutRoute,
   O3MiniHighRoute: O3MiniHighRoute,
   PromptRoute: PromptRoute,
   QuasarAlphaRoute: QuasarAlphaRoute,
@@ -166,6 +215,8 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/gemini-20-flash",
+        "/llama-maverick",
+        "/llama-scout",
         "/o3-mini-high",
         "/prompt",
         "/quasar-alpha"
@@ -176,6 +227,12 @@ export const routeTree = rootRoute
     },
     "/gemini-20-flash": {
       "filePath": "gemini-20-flash.tsx"
+    },
+    "/llama-maverick": {
+      "filePath": "llama-maverick.tsx"
+    },
+    "/llama-scout": {
+      "filePath": "llama-scout.tsx"
     },
     "/o3-mini-high": {
       "filePath": "o3-mini-high.tsx"

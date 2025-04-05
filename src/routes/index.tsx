@@ -32,6 +32,16 @@ function RouteComponent() {
             Quasar Alpha
           </Link>
         </li>
+        <li>
+          <Link className="text-blue-500" to="/llama-scout">
+            Llama Scout
+          </Link>
+        </li>
+        <li>
+          <Link className="text-blue-500" to="/llama-maverick">
+            Llama Maverick
+          </Link>
+        </li>
       </ul>
     </div>
   );
