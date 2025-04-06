@@ -1,5 +1,67 @@
 import Link from "next/link";
 
+interface Model {
+  name: string;
+  href: string;
+}
+
+interface ModelGroup {
+  name: string;
+  models: Model[];
+}
+
+const modelGroups: ModelGroup[] = [
+  {
+    name: "OpenAI",
+    models: [
+      { name: "O3 Mini High", href: "/openai/o3-mini-high" },
+      { name: "GPT 4o", href: "/openai/gpt-4o" },
+    ],
+  },
+  {
+    name: "Google",
+    models: [
+      { name: "Gemini 2.0 Flash", href: "/google/gemini-20-flash" },
+      { name: "Gemini 2.0 Flash Lite", href: "/google/gemini-20-flash-lite" },
+      { name: "Gemini 2.5 Pro", href: "/google/gemini-25-pro" },
+    ],
+  },
+  {
+    name: "Anthropic",
+    models: [
+      { name: "Claude 3.7 Sonnet", href: "/anthropic/37-sonnet" },
+      {
+        name: "Claude 3.7 Sonnet Reasoning",
+        href: "/anthropic/37-sonnet-reasoning",
+      },
+      { name: "Claude 3.5 Sonnet", href: "/anthropic/35-sonnet" },
+    ],
+  },
+  {
+    name: "DeepSeek",
+    models: [
+      { name: "DeepSeek V3 0324", href: "/deepseek/deepseek-v3-0324" },
+      { name: "DeepSeek R1", href: "/deepseek/deepseek-r1" },
+      {
+        name: "DeepSeek R1 Llama Distilled",
+        href: "/deepseek/deepseek-r1-llama",
+      },
+    ],
+  },
+  {
+    name: "Meta",
+    models: [
+      { name: "Llama 4 Scout", href: "/meta/llama-scout" },
+      { name: "Llama 4 Maverick", href: "/meta/llama-maverick" },
+      { name: "Llama 3.7 70B", href: "/meta/llama-37-70b" },
+    ],
+  },
+  {
+    name: "Unknown (Mystery models)",
+    models: [{ name: "Quasar Alpha", href: "/unknown/quasar-alpha" }],
+  },
+];
+
 export default function Home() {
   return (
     <div className="mx-auto flex min-h-screen max-w-screen-md flex-col items-center justify-center gap-2 p-4">
@@ -17,109 +79,20 @@ export default function Home() {
         </p>
       </div>
       <ul className="flex w-full flex-col gap-2">
-        <div>
-          <span className="text-sm text-gray-500">OpenAI</span>
-          <li>
-            <Link className="text-blue-500" href="/openai/o3-mini-high">
-              O3 Mini High
-            </Link>
+        {modelGroups.map((group) => (
+          <li key={group.name}>
+            <h3 className="text-sm text-gray-500">{group.name}</h3>
+            <ul className="flex flex-col">
+              {group.models.map((model) => (
+                <li key={model.href}>
+                  <Link className="text-blue-500" href={model.href}>
+                    {model.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </li>
-          <li>
-            <Link className="text-blue-500" href="/openai/gpt-4o">
-              GPT 4o
-            </Link>
-          </li>
-        </div>
-
-        <div>
-          <span className="text-sm text-gray-500">Google</span>
-          <li>
-            <Link className="text-blue-500" href="/google/gemini-20-flash">
-              Gemini 2.0 Flash
-            </Link>
-          </li>
-          <li>
-            <Link className="text-blue-500" href="/google/gemini-20-flash-lite">
-              Gemini 2.0 Flash Lite
-            </Link>
-          </li>
-          <li>
-            <Link className="text-blue-500" href="/google/gemini-25-pro">
-              Gemini 2.5 Pro
-            </Link>
-          </li>
-        </div>
-
-        <div>
-          <span className="text-sm text-gray-500">Anthropic</span>
-          <li>
-            <Link className="text-blue-500" href="/anthropic/37-sonnet">
-              Claude 3.7 Sonnet
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="text-blue-500"
-              href="/anthropic/37-sonnet-reasoning"
-            >
-              Claude 3.7 Sonnet Reasoning
-            </Link>
-          </li>
-          <li>
-            <Link className="text-blue-500" href="/anthropic/35-sonnet">
-              Claude 3.5 Sonnet
-            </Link>
-          </li>
-        </div>
-
-        <div>
-          <span className="text-sm text-gray-500">DeepSeek</span>
-          <li>
-            <Link className="text-blue-500" href="/deepseek/deepseek-v3-0324">
-              DeepSeek V3 0324
-            </Link>
-          </li>
-          <li>
-            <Link className="text-blue-500" href="/deepseek/deepseek-r1">
-              DeepSeek R1
-            </Link>
-          </li>
-          <li>
-            <Link className="text-blue-500" href="/deepseek/deepseek-r1-llama">
-              DeepSeek R1 Llama Distilled
-            </Link>
-          </li>
-        </div>
-
-        <div>
-          <span className="text-sm text-gray-500">Meta</span>
-          <li>
-            <Link className="text-blue-500" href="/meta/llama-scout">
-              Llama 4 Scout
-            </Link>
-          </li>
-          <li>
-            <Link className="text-blue-500" href="/meta/llama-maverick">
-              Llama 4 Maverick
-            </Link>
-          </li>
-          <li>
-            <Link className="text-blue-500" href="/meta/llama-37-70b">
-              Llama 3.7 70B
-            </Link>
-          </li>
-        </div>
-
-        <div>
-          <span className="text-sm text-gray-500">
-            Unknown {"(Mystery models)"}
-          </span>
-          <li>
-            <Link className="text-blue-500" href="/unknown/quasar-alpha">
-              Quasar Alpha
-            </Link>
-          </li>
-        </div>
+        ))}
       </ul>
     </div>
   );
