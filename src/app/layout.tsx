@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: "A collection of calculators built with React and LLMs",
 };
 
-export const revalidate = 0;
+export const revalidate = false;
 
 export default function RootLayout({
   children,
