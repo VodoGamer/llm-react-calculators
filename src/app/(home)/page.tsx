@@ -38,6 +38,13 @@ const modelGroups: ModelGroup[] = [
     ],
   },
   {
+    name: "xAI",
+    models: [
+      { name: "Grok 3 Mini (High)", href: "/xai/grok-3-mini" },
+      { name: "Grok 3", href: "/xai/grok-3" },
+    ],
+  },
+  {
     name: "DeepSeek",
     models: [
       { name: "DeepSeek V3 0324", href: "/deepseek/deepseek-v3-0324" },
