@@ -65,7 +65,10 @@ const modelGroups: ModelGroup[] = [
   },
   {
     name: "Unknown (Mystery models)",
-    models: [{ name: "Quasar Alpha", href: "/unknown/quasar-alpha" }],
+    models: [
+      { name: "Quasar Alpha", href: "/unknown/quasar-alpha" },
+      { name: "Optimus Alpha", href: "/unknown/optimus-alpha" },
+    ],
   },
 ];
 
