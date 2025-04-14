@@ -16,6 +16,9 @@ const modelGroups: ModelGroup[] = [
     models: [
       { name: "O3 Mini High", href: "/openai/o3-mini-high" },
       { name: "GPT 4o", href: "/openai/gpt-4o" },
+      { name: "GPT 4.1", href: "/openai/gpt-41" },
+      { name: "GPT 4.1 Mini", href: "/openai/gpt-41-mini" },
+      { name: "GPT 4.1 Nano", href: "/openai/gpt-41-nano" },
     ],
   },
   {
