@@ -14,11 +14,14 @@ const modelGroups: ModelGroup[] = [
   {
     name: "OpenAI",
     models: [
-      { name: "O3 Mini High", href: "/openai/o3-mini-high" },
       { name: "GPT 4o", href: "/openai/gpt-4o" },
       { name: "GPT 4.1", href: "/openai/gpt-41" },
       { name: "GPT 4.1 Mini", href: "/openai/gpt-41-mini" },
       { name: "GPT 4.1 Nano", href: "/openai/gpt-41-nano" },
+      { name: "O3 Mini High", href: "/openai/o3-mini-high" },
+      { name: "O4 Mini High", href: "/openai/o4-mini-high" },
+      { name: "O4 Mini Medium", href: "/openai/o4-mini-medium" },
+      { name: "O4 Mini Low", href: "/openai/o4-mini-low" },
     ],
   },
   {
