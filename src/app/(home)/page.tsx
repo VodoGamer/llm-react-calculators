@@ -27,6 +27,11 @@ const modelGroups: ModelGroup[] = [
   {
     name: "Google",
     models: [
+      { name: "Gemini 2.5 Flash", href: "/google/gemini-25-flash" },
+      {
+        name: "Gemini 2.5 Flash Thinking High",
+        href: "/google/gemini-25-flash-thinking-high",
+      },
       { name: "Gemini 2.0 Flash", href: "/google/gemini-20-flash" },
       { name: "Gemini 2.0 Flash Lite", href: "/google/gemini-20-flash-lite" },
       { name: "Gemini 2.5 Pro", href: "/google/gemini-25-pro" },
