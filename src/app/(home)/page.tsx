@@ -35,6 +35,7 @@ const modelGroups: ModelGroup[] = [
   {
     name: "Anthropic",
     models: [
+      { name: "Claude 4 Sonnet", href: "/anthropic/40-sonnet" },
       { name: "Claude 3.7 Sonnet", href: "/anthropic/37-sonnet" },
       {
         name: "Claude 3.7 Sonnet Reasoning",
